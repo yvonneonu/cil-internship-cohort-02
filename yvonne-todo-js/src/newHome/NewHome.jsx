@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+// import CardMedia from "@mui/material/CardMedia";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
+import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -19,7 +19,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -33,6 +33,12 @@ const theme = createTheme();
 export default function NewHome() {
   const [todos, setTodos] = useState([]);
 
+  const [setChecked] = useState(true);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -41,18 +47,26 @@ export default function NewHome() {
   }, [count]);
 
   function getData() {
-    fetch(`https://jsonplaceholder.typicode.com/posts`)
+    fetch(`https://jsonplaceholder.typicode.com/todos`)
       .then((response) => response.json())
       .then((json) => setTodos(json));
   }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
+      <AppBar
+        position="relative"
+        sx={{
+          
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+          <Typography variant="h4" color="inherit" noWrap>
+            TASKS
           </Typography>
         </Toolbar>
       </AppBar>
@@ -109,7 +123,7 @@ export default function NewHome() {
                     flexDirection: "column",
                   }}
                 >
-                  <CardMedia
+                  {/* <CardMedia
                     component="img"
                     sx={{
                       // 16:9
@@ -117,12 +131,19 @@ export default function NewHome() {
                     }}
                     image="https://source.unsplash.com/random"
                     alt="random"
-                  />
+                  /> */}
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {todo.title}
+                      {todo.id}
                     </Typography>
-                    <Typography>{todo.body}</Typography>
+
+                    <Typography> {todo.title} </Typography>
+
+                    <Checkbox
+                      checked={todo.completed}
+                      onChange={handleChange}
+                      inputProps={{ "aria-label": "controlled" }}
+                    />
                   </CardContent>
                 </Card>
               </Grid>
@@ -141,7 +162,7 @@ export default function NewHome() {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Have your task updated here
         </Typography>
         <Copyright />
       </Box>
