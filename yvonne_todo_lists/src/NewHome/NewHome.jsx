@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
+// import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+// import CardMedia from "@mui/material/CardMedia";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
@@ -19,7 +19,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -33,26 +33,38 @@ const theme = createTheme();
 export default function NewHome() {
   const [todos, setTodos] = useState([]);
 
-  const [count, setCount] = useState(0);
-
   useEffect(() => {
-    console.log("sister" + count);
+    // console.log("sister" + count);
     getData();
-  }, [count]);
+  }, []);
 
   function getData() {
     fetch(`https://jsonplaceholder.typicode.com/posts`)
       .then((response) => response.json())
-      .then((json) => setTodos(json));
+      .then((json) => {
+        console.log(json);
+        setTodos(json.reverse());
+      })
+      .catch((err) => {
+        console.log("error" + err.message);
+      });
   }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative">
+      <AppBar
+        position="relative"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+          {/* <CameraIcon sx={{ mr: 2 }} /> */}
+          <Typography variant="h5" color="inherit" noWrap>
+            Todos
           </Typography>
         </Toolbar>
       </AppBar>
@@ -93,7 +105,7 @@ export default function NewHome() {
               justifyContent="center"
             >
               {/* <Button size = "large" variant="contained">Add todo</Button> */}
-              <BasicModal setCount={setCount} />
+              <BasicModal setTodos={setTodos} todos={todos} />
             </Stack>
           </Container>
         </Box>
@@ -109,7 +121,7 @@ export default function NewHome() {
                     flexDirection: "column",
                   }}
                 >
-                  <CardMedia
+                  {/* <CardMedia
                     component="img"
                     sx={{
                       // 16:9
@@ -117,7 +129,7 @@ export default function NewHome() {
                     }}
                     image="https://source.unsplash.com/random"
                     alt="random"
-                  />
+                  /> */}
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       {todo.title}
@@ -141,7 +153,7 @@ export default function NewHome() {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Have your task updated here{" "}
         </Typography>
         <Copyright />
       </Box>

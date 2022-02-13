@@ -20,11 +20,11 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ setCount }) {
+export default function BasicModal({ setTodos, todos }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  let count = 0;
+
   const [Title, setTitle] = useState("");
   const [Description, setDescription] = useState("");
 
@@ -50,10 +50,15 @@ export default function BasicModal({ setCount }) {
     })
       .then((response) => response.json())
       .then((json) => {
-        setCount(() => count++);
+        setTodos([...todos, { body: Description, title: Title }].reverse());
         setOpenBack(false);
         handleClose();
         console.log(json);
+      })
+      .catch((err) => {
+        setOpenBack(false);
+        handleClose();
+        console.log("error" + err.message);
       });
   };
 
