@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
-import BasicModal from "../BasicModal/BasicModal";
 
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -39,22 +38,7 @@ const theme = createTheme();
 export default function Mainpage() {
   const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
-    // console.log("sister" + count);
-    getData();
-  }, []);
-
-  function getData() {
-    fetch(`https://jsonplaceholder.typicode.com/posts`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        setTodos(json.reverse());
-      })
-      .catch((err) => {
-        console.log("error" + err.message);
-      });
-  }
+  
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -96,7 +80,7 @@ export default function Mainpage() {
               spacing={2}
               justifyContent="center"
             >
-              <BasicModal setTodos={setTodos} todos={todos} />
+              <Button variant="contained">Add todos</Button>
               {/* <Button variant="outlined">Secondary action</Button> */}
             </Stack>
           </Container>

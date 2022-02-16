@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
-import BasicModal from "../BasicModal/BasicModal";
 
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -96,7 +95,8 @@ export default function Mainpage() {
               spacing={2}
               justifyContent="center"
             >
-              <BasicModal setTodos={setTodos} todos={todos} />
+              <Button variant="contained">Add todos</Button>
+              
               {/* <Button variant="outlined">Secondary action</Button> */}
             </Stack>
           </Container>

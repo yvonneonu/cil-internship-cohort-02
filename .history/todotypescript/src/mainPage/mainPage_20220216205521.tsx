@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { useEffect, useState } from "react";
-import BasicModal from "../BasicModal/BasicModal";
-
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import CameraIcon from '@mui/icons-material/PhotoCamera';
@@ -37,24 +34,6 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const theme = createTheme();
 
 export default function Mainpage() {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    // console.log("sister" + count);
-    getData();
-  }, []);
-
-  function getData() {
-    fetch(`https://jsonplaceholder.typicode.com/posts`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        setTodos(json.reverse());
-      })
-      .catch((err) => {
-        console.log("error" + err.message);
-      });
-  }
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -62,7 +41,7 @@ export default function Mainpage() {
         <Toolbar>
           <CameraIcon sx={{ mr: 2 }} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            Todo List
           </Typography>
         </Toolbar>
       </AppBar>
@@ -83,7 +62,7 @@ export default function Mainpage() {
               color="text.primary"
               gutterBottom
             >
-              Todo List
+              Album layout
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
               Something short and leading about the collection below—its contents,
@@ -96,8 +75,8 @@ export default function Mainpage() {
               spacing={2}
               justifyContent="center"
             >
-              <BasicModal setTodos={setTodos} todos={todos} />
-              {/* <Button variant="outlined">Secondary action</Button> */}
+              <Button variant="contained">Main call to action</Button>
+              <Button variant="outlined">Secondary action</Button>
             </Stack>
           </Container>
         </Box>

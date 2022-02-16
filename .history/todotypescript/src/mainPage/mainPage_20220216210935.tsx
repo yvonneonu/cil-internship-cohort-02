@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from "react";
-import BasicModal from "../BasicModal/BasicModal";
+import BasicModal from "../BasicModal/";
 
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
