@@ -2,10 +2,6 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 
 import TextField from "@mui/material/TextField";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -64,7 +60,10 @@ function Contact() {
               <Box sx={{ flexGrow: 1 }}>
                 <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                   Contact Manager
+                
                 </Typography>
+
+                
               </Box>
             </Grid>
 
@@ -171,33 +170,6 @@ function Contact() {
                   sx={{ fontWeight: "bold", textAlign: "center" }}
                 >
                   Contact Manager
-                </Typography>
-
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={{ fontWeight: "bold", textAlign: "center" }}
-                >
-                  This is a portfolio project to showcase knowledge of:{" "}
-                  <List
-                    sx={{
-                      width: "100%",
-
-                      bgcolor: "background.paper",
-                    }}
-                  >
-                    {[
-                      "i.   React Components and JSX.",
-                      "ii.  React Router.",
-                      "iii. Component state management.",
-                      "iv.  Context api for global state management.",
-                      "v.   Making asynchronous calls to the Json placeholder fake rest api using async/await.",
-                    ].map((value) => (
-                      <ListItem key={value} disableGutters>
-                        <ListItemText primary={` ${value}`} />
-                      </ListItem>
-                    ))}
-                  </List>
                 </Typography>
               </Stack>
             </Grid>

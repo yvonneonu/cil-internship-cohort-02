@@ -187,11 +187,11 @@ function Contact() {
                     }}
                   >
                     {[
-                      "i.   React Components and JSX.",
+                      "i.  React Components and JSX.",
                       "ii.  React Router.",
                       "iii. Component state management.",
-                      "iv.  Context api for global state management.",
-                      "v.   Making asynchronous calls to the Json placeholder fake rest api using async/await.",
+                      "Context api for global state management.",
+                      " Making asynchronous calls to the Json placeholder fake rest api using async/await.",
                     ].map((value) => (
                       <ListItem key={value} disableGutters>
                         <ListItemText primary={` ${value}`} />

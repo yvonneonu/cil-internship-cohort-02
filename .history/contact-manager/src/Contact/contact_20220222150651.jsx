@@ -1,14 +1,21 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
-
+// import Button from "@mui/material/Button";
+// import CameraIcon from "@mui/icons-material/PhotoCamera";
+// import Card from "@mui/material/Card";
+// import CardActions from "@mui/material/CardActions";
+// import CardContent from "@mui/material/CardContent";
+// import CardMedia from "@mui/material/CardMedia";
 import TextField from "@mui/material/TextField";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import CircularStatic from "../components/circularProgressWithLabel/CircularProgressWithLabel";
+import HtmlIcon from "@mui/icons-material/Html";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
@@ -18,6 +25,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
+// import { styled } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import TemporaryDrawer from "../components/TemporaryDrawer/TemporaryDrawer";
@@ -171,33 +179,6 @@ function Contact() {
                   sx={{ fontWeight: "bold", textAlign: "center" }}
                 >
                   Contact Manager
-                </Typography>
-
-                <Typography
-                  variant="h4"
-                  component="div"
-                  sx={{ fontWeight: "bold", textAlign: "center" }}
-                >
-                  This is a portfolio project to showcase knowledge of:{" "}
-                  <List
-                    sx={{
-                      width: "100%",
-
-                      bgcolor: "background.paper",
-                    }}
-                  >
-                    {[
-                      "i.   React Components and JSX.",
-                      "ii.  React Router.",
-                      "iii. Component state management.",
-                      "iv.  Context api for global state management.",
-                      "v.   Making asynchronous calls to the Json placeholder fake rest api using async/await.",
-                    ].map((value) => (
-                      <ListItem key={value} disableGutters>
-                        <ListItemText primary={` ${value}`} />
-                      </ListItem>
-                    ))}
-                  </List>
                 </Typography>
               </Stack>
             </Grid>

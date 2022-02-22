@@ -182,20 +182,18 @@ function Contact() {
                   <List
                     sx={{
                       width: "100%",
-
+                      maxWidth: 360,
                       bgcolor: "background.paper",
                     }}
                   >
-                    {[
-                      "i.   React Components and JSX.",
-                      "ii.  React Router.",
-                      "iii. Component state management.",
-                      "iv.  Context api for global state management.",
-                      "v.   Making asynchronous calls to the Json placeholder fake rest api using async/await.",
-                    ].map((value) => (
-                      <ListItem key={value} disableGutters>
-                        <ListItemText primary={` ${value}`} />
-                      </ListItem>
+                    {[1, 2, 3].map((value) => (
+                      <Typ
+                        key={value}
+                        disableGutters
+                        
+                      >
+                        <ListItemText primary={`Line item ${value}`} />
+                      </Typ>
                     ))}
                   </List>
                 </Typography>

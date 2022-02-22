@@ -2,10 +2,10 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 
 import TextField from "@mui/material/TextField";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import CommentIcon from '@mui/icons-material/Comment';
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -182,19 +182,21 @@ function Contact() {
                   <List
                     sx={{
                       width: "100%",
-
+                      maxWidth: 360,
                       bgcolor: "background.paper",
                     }}
                   >
-                    {[
-                      "i.   React Components and JSX.",
-                      "ii.  React Router.",
-                      "iii. Component state management.",
-                      "iv.  Context api for global state management.",
-                      "v.   Making asynchronous calls to the Json placeholder fake rest api using async/await.",
-                    ].map((value) => (
-                      <ListItem key={value} disableGutters>
-                        <ListItemText primary={` ${value}`} />
+                    {[1, 2, 3].map((value) => (
+                      <ListItem
+                        key={value}
+                        disableGutters
+                        secondaryAction={
+                          <IconButton>
+                            <CommentIcon />
+                          </IconButton>
+                        }
+                      >
+                        <ListItemText primary={`Line item ${value}`} />
                       </ListItem>
                     ))}
                   </List>
